@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Prestige Music — Концертное агентство</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,6 +45,7 @@ body::after{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   mix-blend-mode:multiply;
 }
+@media(max-width:860px){body::after{display:none}}
 
 /* utilities */
 .eyebrow{font-family:var(--font-ui);font-size:10px;letter-spacing:0.42em;text-transform:uppercase;font-weight:600;color:var(--silver-deep)}
@@ -54,7 +56,7 @@ body::after{
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:26px 56px;transition:padding .5s ease,background .5s ease,border-color .5s ease,backdrop-filter .5s ease;border-bottom:1px solid transparent}
-nav.scrolled{padding:15px 56px;background:rgba(251,251,252,0.82);backdrop-filter:blur(16px) saturate(1.1);-webkit-backdrop-filter:blur(16px) saturate(1.1);border-bottom:1px solid var(--line)}
+nav.scrolled{padding:15px 56px;background:rgba(251,251,252,0.97);backdrop-filter:blur(16px) saturate(1.1);-webkit-backdrop-filter:blur(16px) saturate(1.1);border-bottom:1px solid var(--line)}
 .logo{font-family:var(--font-display);font-size:21px;letter-spacing:0.14em;color:var(--ink);line-height:1.15}
 .logo span{font-family:var(--font-ui);font-size:8px;font-weight:600;letter-spacing:0.4em;display:block;color:var(--silver-deep);margin-top:5px;text-transform:uppercase}
 .nav-links{display:flex;gap:40px;align-items:center}
@@ -113,10 +115,10 @@ nav.scrolled .nav-links a:hover{color:var(--ink)}
 .credo::before,.credo::after{content:'';position:absolute;top:50%;width:300px;height:300px;border-radius:50%;border:1px solid rgba(168,147,94,0.10);transform:translateY(-50%)}
 .credo::before{left:-120px}
 .credo::after{right:-120px}
-.credo-row{display:flex;align-items:center;justify-content:center;gap:0;position:relative;z-index:2;max-width:1000px;margin:0 auto}
-.credo-w{flex:1;text-align:center;font-family:var(--font-display);font-size:clamp(30px,4.2vw,54px);line-height:1;letter-spacing:0.01em;background:var(--platinum);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.credo-row{display:flex;align-items:center;justify-content:center;gap:clamp(18px,6vw,56px);position:relative;z-index:2;max-width:1000px;margin:0 auto;flex-wrap:nowrap}
+.credo-w{text-align:center;white-space:nowrap;font-family:var(--font-display);font-size:clamp(26px,8vw,54px);line-height:1;letter-spacing:0.01em;background:var(--platinum);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .credo-dot{width:6px;height:6px;border-radius:50%;background:var(--silver);flex:0 0 auto;margin:0 8px;opacity:0.8}
-@media(max-width:760px){.credo{padding:48px 24px}.credo-row{flex-direction:column;gap:18px}.credo-dot{width:34px;height:1px;border-radius:0}}
+@media(max-width:760px){.credo{padding:44px 16px}}
 
 /* ABOUT — light */
 .about{display:grid;grid-template-columns:1.05fr 1fr;min-height:600px;background:var(--paper)}
@@ -144,7 +146,7 @@ nav.scrolled .nav-links a:hover{color:var(--ink)}
 .sec-title em{font-style:normal;color:var(--silver-deep)}
 .scards-wrap{overflow:hidden;padding:18px 6px 46px}
 .scards-track{display:flex;gap:20px;transition:transform .7s cubic-bezier(.16,1,.3,1)}
-.scard{min-width:262px;height:540px;flex-shrink:0;position:relative;overflow:hidden;cursor:default;border-radius:131px 131px 8px 8px;transition:transform .6s cubic-bezier(.16,1,.3,1);box-shadow:0 24px 50px -34px rgba(20,22,28,0.4)}
+.scard{min-width:262px;height:540px;flex-shrink:0;position:relative;overflow:hidden;cursor:default;border-radius:131px 131px 8px 8px;-webkit-backface-visibility:hidden;transition:transform .6s cubic-bezier(.16,1,.3,1);box-shadow:0 24px 50px -34px rgba(20,22,28,0.4)}
 .scard:hover{transform:translateY(-7px)}
 .scard-photo{position:absolute;inset:0}
 .scard-photo img{width:100%;height:100%;object-fit:cover;filter:contrast(1.04) saturate(0.96) brightness(0.96);transition:filter .7s,transform .9s ease}
@@ -174,13 +176,15 @@ nav.scrolled .nav-links a:hover{color:var(--ink)}
 .agallery{padding-top:8px}
 .gdesc{font-size:13px;letter-spacing:0.02em;color:var(--ink-soft);margin-bottom:34px;font-weight:400;transition:opacity .4s;line-height:1.9;max-width:620px}
 .gslides{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.gslide{height:340px;overflow:hidden;position:relative;border-radius:120px 120px 8px 8px;border:1px solid var(--line);box-shadow:0 24px 50px -36px rgba(20,22,28,0.4)}
+.gslide{height:340px;overflow:hidden;position:relative;border-radius:120px 120px 8px 8px;border:1px solid var(--line);box-shadow:0 24px 50px -36px rgba(20,22,28,0.4);transform:translateZ(0);-webkit-backface-visibility:hidden}
 .gslide img{width:100%;height:100%;object-fit:cover;object-position:center 32%;filter:contrast(1.04) saturate(0.97);transition:filter .6s,transform .9s ease}
 .gslide:hover img{transform:scale(1.05)}
 .gslide-gloss{position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,0) 40%,rgba(255,255,255,0.18) 50%,rgba(255,255,255,0) 60%),linear-gradient(to bottom,rgba(255,255,255,0.18),transparent 14%);mix-blend-mode:screen}
 .gslide-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,11,14,0.8) 0%,transparent 42%)}
 .gslide-label{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:8px;letter-spacing:0.3em;color:#fff;text-transform:uppercase;font-weight:600;z-index:2}
 .gslide-logo{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);width:108px;aspect-ratio:520/71;z-index:2;background:linear-gradient(104deg,#C9B98E 0%,#FBF3DE 48%,#C9A24B 100%);-webkit-mask:url(niletto-logo.png) center/contain no-repeat;mask:url(niletto-logo.png) center/contain no-repeat;opacity:0.95}
+.gslides.show-logo .gslide-label{display:none}
+.gslides:not(.show-logo) .gslide-logo{display:none}
 .gcap{margin-top:22px;font-size:9px;letter-spacing:0.2em;color:var(--silver-deep);text-transform:uppercase}
 
 /* AFISHA — events */
@@ -192,7 +196,7 @@ nav.scrolled .nav-links a:hover{color:var(--ink)}
 .afisha-viewport{overflow:hidden;padding:0 56px}
 .afisha-track{display:flex;gap:28px;transition:transform .8s cubic-bezier(.16,1,.3,1)}
 .poster{flex:0 0 calc(50% - 14px);display:flex;flex-direction:column}
-.poster-img{position:relative;width:100%;aspect-ratio:1/1.414;overflow:hidden;border-radius:10px;border:1px solid var(--line);box-shadow:0 30px 64px -40px rgba(20,22,28,0.55);background:#0e1116}
+.poster-img{position:relative;width:100%;aspect-ratio:1/1.414;overflow:hidden;border-radius:10px;border:1px solid var(--line);box-shadow:0 30px 64px -40px rgba(20,22,28,0.55);background:#0e1116;transform:translateZ(0);-webkit-backface-visibility:hidden}
 .poster-img img{width:100%;height:100%;object-fit:cover;transition:transform .9s ease}
 .poster:hover .poster-img img{transform:scale(1.035)}
 .poster-gloss{position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,0) 42%,rgba(255,255,255,0.16) 50%,rgba(255,255,255,0) 58%);mix-blend-mode:screen}
@@ -288,6 +292,8 @@ footer{background:linear-gradient(180deg,var(--graphite) 0%,#101218 100%);paddin
 .foot-social a:hover{border-color:var(--silver);color:#fff}
 .foot-col h4{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--silver);font-weight:600;margin-bottom:20px}
 .foot-col a,.foot-col p{display:block;font-size:12px;color:rgba(251,251,252,0.55);text-decoration:none;line-height:1.6;margin-bottom:12px;font-weight:400;transition:color .35s}
+.foot-col a[href^="tel"]{white-space:nowrap}
+.foot-legal a{color:inherit;text-decoration:none}
 .foot-col a:hover{color:#fff}
 .foot-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;padding-top:28px}
 .foot-legal{font-size:10px;color:rgba(251,251,252,0.32);letter-spacing:0.04em;line-height:1.7}
@@ -310,8 +316,10 @@ footer{background:linear-gradient(180deg,var(--graphite) 0%,#101218 100%);paddin
   .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
   .about{grid-template-columns:1fr}
   .about-text{padding:64px 28px}
-  .about-photos{min-height:440px}
-  .services,.artists,.form-sec{padding:72px 28px}
+  .about-photos{min-height:440px;margin-bottom:18px}
+  .services{padding:96px 28px 72px}
+  .artists,.form-sec{padding:72px 28px}
+  .gslide{height:420px}
   .afisha{padding:64px 0 60px}
   .afisha-head,.afisha-viewport,.afisha-nav{padding-left:28px;padding-right:28px}
   .afisha-head{flex-direction:column;align-items:flex-start;gap:10px}
@@ -617,9 +625,7 @@ footer{background:linear-gradient(180deg,var(--graphite) 0%,#101218 100%);paddin
 <section class="credo" data-screen-label="Credo">
   <div class="credo-row">
     <div class="credo-w reveal">Вкус</div>
-    <div class="credo-dot reveal d1"></div>
     <div class="credo-w reveal d1">Мода</div>
-    <div class="credo-dot reveal d2"></div>
     <div class="credo-w reveal d2">Стиль</div>
   </div>
 </section>
@@ -634,23 +640,26 @@ footer{background:linear-gradient(180deg,var(--graphite) 0%,#101218 100%);paddin
   </div>
   <div class="agallery reveal d3" id="agallery">
     <div class="gdesc" id="gdesc">Никита Злотников — один из самых ярких артистов новой волны. Энергичные шоу и аншлаги на лучших площадках страны.</div>
-    <div class="gslides" id="gslides">
+    <div class="gslides show-logo" id="gslides">
       <div class="gslide">
         <img id="gi0" src="niletto-1.jpg" alt="">
         <div class="gslide-overlay"></div>
         <div class="gslide-gloss"></div>
+        <div class="gslide-label" id="gl0">Концерт</div>
         <div class="gslide-logo"></div>
       </div>
       <div class="gslide">
         <img id="gi1" src="niletto-2.jpg" alt="">
         <div class="gslide-overlay"></div>
         <div class="gslide-gloss"></div>
+        <div class="gslide-label" id="gl1">Сцена</div>
         <div class="gslide-logo"></div>
       </div>
       <div class="gslide">
         <img id="gi2" src="niletto-3.jpg" alt="">
         <div class="gslide-overlay"></div>
         <div class="gslide-gloss"></div>
+        <div class="gslide-label" id="gl2">Шоу</div>
         <div class="gslide-logo"></div>
       </div>
     </div>
@@ -725,7 +734,6 @@ footer{background:linear-gradient(180deg,var(--graphite) 0%,#101218 100%);paddin
       <div class="pchip"><div class="plogo pl-tsar"></div></div>
       <div class="pchip"><div class="plogo pl-bentley"></div></div>
       <div class="pchip"><div class="plogo pl-maserati"></div></div>
-      <div class="pchip"><div class="plogo pl-autocoll"></div></div>
       <div class="pchip"><div class="plogo pl-aerotur"></div></div>
       <div class="pchip"><div class="plogo pl-grandhotel"></div></div>
       <div class="pchip"><div class="plogo pl-astoria"></div></div>
@@ -749,7 +757,6 @@ footer{background:linear-gradient(180deg,var(--graphite) 0%,#101218 100%);paddin
       <div class="pchip" aria-hidden="true"><div class="plogo pl-tsar"></div></div>
       <div class="pchip" aria-hidden="true"><div class="plogo pl-bentley"></div></div>
       <div class="pchip" aria-hidden="true"><div class="plogo pl-maserati"></div></div>
-      <div class="pchip" aria-hidden="true"><div class="plogo pl-autocoll"></div></div>
       <div class="pchip" aria-hidden="true"><div class="plogo pl-aerotur"></div></div>
       <div class="pchip" aria-hidden="true"><div class="plogo pl-grandhotel"></div></div>
       <div class="pchip" aria-hidden="true"><div class="plogo pl-astoria"></div></div>
@@ -766,7 +773,7 @@ footer{background:linear-gradient(180deg,var(--graphite) 0%,#101218 100%);paddin
     </div>
   </div>
   <div class="partners-foot reveal">
-    <span class="pl">Зенит</span><span class="pl">Газпром</span><span class="pl">Роснефть</span><span class="pl">Лукойл</span><span class="pl">Four Seasons</span><span class="pl">Villa du Prince</span><span class="pl">Trezzini</span><span class="pl">Tsar Palace</span><span class="pl">Bentley</span><span class="pl">Maserati</span><span class="pl">Autocollection</span><span class="pl">Аэротур</span><span class="pl">Grand Hotel Europe</span><span class="pl">Hotel Astoria</span><span class="pl">Angleterre</span><span class="pl">Wawelberg Hotel</span><span class="pl">ПЭФ</span><span class="pl">Авангард Mercedes-Benz</span><span class="pl">Спорт Мобиль Porsche</span><span class="pl">W Hotels</span><span class="pl">SO/</span><span class="pl">Лахта Плаза</span><span class="pl">Corinthia</span><span class="pl">Ginza Project</span>
+    <span class="pl">Зенит</span><span class="pl">Газпром</span><span class="pl">Роснефть</span><span class="pl">Лукойл</span><span class="pl">Four Seasons</span><span class="pl">Villa du Prince</span><span class="pl">Trezzini</span><span class="pl">Tsar Palace</span><span class="pl">Bentley</span><span class="pl">Maserati</span><span class="pl">Аэротур</span><span class="pl">Grand Hotel Europe</span><span class="pl">Hotel Astoria</span><span class="pl">Angleterre</span><span class="pl">Wawelberg Hotel</span><span class="pl">ПЭФ</span><span class="pl">Авангард Mercedes-Benz</span><span class="pl">Спорт Мобиль Porsche</span><span class="pl">W Hotels</span><span class="pl">SO/</span><span class="pl">Лахта Плаза</span><span class="pl">Corinthia</span><span class="pl">Ginza Project</span>
   </div>
 </section>
 
@@ -1015,9 +1022,35 @@ document.querySelectorAll('.atag').forEach(function(tag){
     imgs.forEach(function(id,i){
       var el=document.getElementById('gi'+i);
       if(el) el.src=id;
+      var lb=document.getElementById('gl'+i);
+      if(lb && labels[i]) lb.textContent=labels[i].trim();
     });
+    var gs=document.getElementById('gslides');
+    if(tag.dataset.name==='Niletto'){ gs.classList.add('show-logo'); }
+    else { gs.classList.remove('show-logo'); }
   });
 });
+
+// Touch swipe for sliders (afisha + services)
+function addSwipe(el, onLeft, onRight){
+  if(!el) return;
+  var x0=null, y0=null, locked=false;
+  el.addEventListener('touchstart',function(e){var t=e.touches[0];x0=t.clientX;y0=t.clientY;locked=false;},{passive:true});
+  el.addEventListener('touchmove',function(e){
+    if(x0===null) return;
+    var t=e.touches[0], dx=t.clientX-x0, dy=t.clientY-y0;
+    if(!locked && Math.abs(dx)>Math.abs(dy)+6){ locked=true; }
+  },{passive:true});
+  el.addEventListener('touchend',function(e){
+    if(x0===null) return;
+    var t=e.changedTouches[0], dx=t.clientX-x0, dy=t.clientY-y0;
+    if(Math.abs(dx)>44 && Math.abs(dx)>Math.abs(dy)){ if(dx<0){onLeft();}else{onRight();} }
+    x0=null;y0=null;
+  },{passive:true});
+}
+addSwipe(document.getElementById('aftrack'), function(){afMove(1);}, function(){afMove(-1);});
+addSwipe(document.getElementById('strack'), function(){scrollCards(1);}, function(){scrollCards(-1);});
+addSwipe(document.querySelector('.about-photos'), function(){goPhoto((curPhoto+1)%photoTotal);}, function(){goPhoto((curPhoto-1+photoTotal)%photoTotal);});
 
 // Reveal on scroll
 var revObserver=new IntersectionObserver(function(entries){
