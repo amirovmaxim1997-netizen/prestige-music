@@ -177,6 +177,8 @@ nav.scrolled .nav-links a:hover{color:var(--ink)}
 .agallery{padding-top:8px}
 .gdesc{font-size:13px;letter-spacing:0.02em;color:var(--ink-soft);margin-bottom:34px;font-weight:400;transition:opacity .4s;line-height:1.9;max-width:620px}
 .gslides{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gslides.single{grid-template-columns:1fr;max-width:560px}
+.gslides.single .gslide:nth-child(n+2){display:none}
 .gslide{height:340px;overflow:hidden;position:relative;border-radius:120px 120px 8px 8px;border:1px solid var(--line);box-shadow:0 24px 50px -36px rgba(20,22,28,0.4);transform:translateZ(0);-webkit-backface-visibility:hidden}
 .gslide img{width:100%;height:100%;object-fit:cover;object-position:center 32%;filter:contrast(1.04) saturate(0.97);transition:filter .6s,transform .9s ease}
 .gslide:hover img{transform:scale(1.05)}
@@ -253,7 +255,7 @@ nav.scrolled .nav-links a:hover{color:var(--ink)}
 .partners-title em{font-style:normal;color:var(--silver-deep)}
 .partners-lede{font-size:13.5px;color:var(--ink-soft);line-height:1.9;max-width:680px;font-weight:400;margin-top:18px}
 .marquee{position:relative;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);-webkit-mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.marquee-track{display:flex;width:max-content;animation:marq 42s linear infinite;will-change:transform}
+.marquee-track{display:flex;width:max-content;animation:marq 56s linear infinite;will-change:transform}
 @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .pchip{flex-shrink:0;display:flex;align-items:center;justify-content:center;height:104px;padding:0 50px;border-right:1px solid var(--line);color:var(--silver-deep);transition:color .45s,opacity .45s;opacity:0.78}
 .pchip:hover{color:var(--ink);opacity:1}
@@ -492,7 +494,7 @@ footer{background:linear-gradient(180deg,var(--graphite) 0%,#101218 100%);paddin
 <!-- STATS -->
 <div class="stats">
   <div class="stat"><div class="stat-n metallic" data-count="200" data-suffix="+">0</div><div class="stat-l">Концертов</div></div>
-  <div class="stat"><div class="stat-n metallic" data-count="15">0</div><div class="stat-l">Стран</div></div>
+  <div class="stat"><div class="stat-n metallic" data-count="25" data-suffix="+">0</div><div class="stat-l">Стран</div></div>
   <div class="stat"><div class="stat-n metallic" data-count="50" data-suffix="+">0</div><div class="stat-l">Артистов</div></div>
   <div class="stat"><div class="stat-n metallic" data-count="15">0</div><div class="stat-l">Лет опыта</div></div>
 </div>
@@ -502,7 +504,7 @@ footer{background:linear-gradient(180deg,var(--graphite) 0%,#101218 100%);paddin
   <div class="about-text">
     <div class="eyebrow reveal" style="margin-bottom:26px">
 </div>
-    <h2 class="about-names reveal d1">Мероприятия, которые<br><em>создают</em> воспоминания</h2>
+    <h2 class="about-names reveal d1">Мероприятия, в которых<br>каждый момент становится <em>особенным</em></h2>
     <div class="about-divider reveal d2"></div>
     <p class="about-body reveal d2">Laque Group и концертный директор Владислав Поляков объединили многолетний опыт и экспертизу, создав единое концертное агентство Prestige Music. Мы создаём события, о которых ещё долго говорят гости, партнёры и индустрия.<br><br>Наш профессиональный бэкграунд — организация концертов мировых звёзд, туры по России, Европе, Северной Америке, Канаде и Великобритании, фестивали, масштабные корпоративные и фешен-события. От идеи до совершенства исполнения.</p>
     <div class="about-tags reveal d3">Концерты &nbsp;·&nbsp; Туры &nbsp;·&nbsp; Корпоративы &nbsp;·&nbsp; Эвенты</div>
@@ -605,7 +607,7 @@ footer{background:linear-gradient(180deg,var(--graphite) 0%,#101218 100%);paddin
         <div class="scard-content">
           <div class="scard-num">04</div>
           <div class="scard-title">Продюсирование<br>артистов</div>
-          <div class="scard-body">Раскрытие потенциала артиста на максимум. Стратегия, буккинг, промо, международная карьера.</div>
+          <div class="scard-body">Раскрытие потенциала артиста на максимум. Стратегия, букинг, промо, международная карьера.</div>
         </div></div>
       </div>
       <div class="scard">
@@ -642,14 +644,13 @@ footer{background:linear-gradient(180deg,var(--graphite) 0%,#101218 100%);paddin
   <h2 class="artists-title reveal d1" style="margin-bottom:18px">Артисты, с которыми<br><em>мы работали</em></h2>
   <p class="artists-lede reveal d1">Каждое имя в этом списке — часть опыта Prestige Music. С нами вы получаете доступ к самым ярким звёздам российской и зарубежной сцены.</p>
   <div class="atags reveal d2" id="atags">
-    <div class="atag active" data-name="Niletto" data-desc="Данил Прытков — один из самых ярких артистов новой волны. Энергичные шоу и аншлаги на лучших площадках страны." data-imgs="niletto-1.jpg,niletto-2.jpg,niletto-3.jpg" data-labels="Концерт,Сцена,Шоу">Niletto</div>
-    <div class="atag" data-name="И другие" data-desc="A'STUDIO, Григорий Лепс, Серебро, Ума Турман, Guy Gerber, Maceo Plex, Luciano и многие другие." data-imgs="astudio.jpg,art-leps.jpg,art-umaturman.jpg" data-labels="A'STUDIO,Лепс,Ума Турман">И другие</div>
-  </div>
+    <div class="atag active" data-name="Niletto" data-desc="Данил Прытков — один из самых ярких артистов новой волны. Энергичные шоу и аншлаги на лучших площадках страны." data-imgs="niletto-3.jpg" data-labels="Шоу">Niletto</div>
+    <div class="atag" data-name="И другие" data-desc="A'STUDIO, Григорий Лепс, Серебро, Ума Турман, Guy Gerber, Maceo Plex, Luciano и многие другие." data-imgs="astudio.jpg,art-leps.jpg,art-umaturman.jpg" data-labels="A'STUDIO,Лепс,Ума Турман">И другие</div>  </div>
   <div class="agallery reveal d3" id="agallery">
     <div class="gdesc" id="gdesc">Данил Прытков — один из самых ярких артистов новой волны. Энергичные шоу и аншлаги на лучших площадках страны.</div>
-    <div class="gslides show-logo" id="gslides">
+    <div class="gslides show-logo single" id="gslides">
       <div class="gslide">
-        <img id="gi0" src="niletto-1.jpg" alt="">
+        <img id="gi0" src="niletto-3.jpg" alt="">
         <div class="gslide-overlay"></div>
         <div class="gslide-gloss"></div>
         <div class="gslide-label" id="gl0">Концерт</div>
@@ -731,7 +732,6 @@ footer{background:linear-gradient(180deg,var(--graphite) 0%,#101218 100%);paddin
       <div class="pchip"><div class="wm up">SO/</div></div>
       <div class="pchip"><div class="wm">Лахта Плаза</div></div>
       <div class="pchip"><div class="wm up">Corinthia</div></div>
-      <div class="pchip"><div class="wm">Ginza Project</div></div>
       <div class="pchip"><div class="wm up">Autocollection</div></div>
       <div class="pchip"><div class="plogo pl-ohta"></div></div>
       <div class="pchip" aria-hidden="true"><div class="plogo pl-zenit"></div></div>
@@ -756,13 +756,12 @@ footer{background:linear-gradient(180deg,var(--graphite) 0%,#101218 100%);paddin
       <div class="pchip" aria-hidden="true"><div class="wm up">SO/</div></div>
       <div class="pchip" aria-hidden="true"><div class="wm">Лахта Плаза</div></div>
       <div class="pchip" aria-hidden="true"><div class="wm up">Corinthia</div></div>
-      <div class="pchip" aria-hidden="true"><div class="wm">Ginza Project</div></div>
       <div class="pchip" aria-hidden="true"><div class="wm up">Autocollection</div></div>
       <div class="pchip" aria-hidden="true"><div class="plogo pl-ohta"></div></div>
     </div>
   </div>
   <div class="partners-foot reveal">
-    <span class="pl">Зенит</span><span class="pl">Газпром</span><span class="pl">Роснефть</span><span class="pl">Лукойл</span><span class="pl">Four Seasons</span><span class="pl">Villa du Prince</span><span class="pl">Trezzini</span><span class="pl">Tsar Palace</span><span class="pl">Bentley</span><span class="pl">Maserati</span><span class="pl">Аэротур</span><span class="pl">Grand Hotel Europe</span><span class="pl">Hotel Astoria</span><span class="pl">Angleterre</span><span class="pl">Wawelberg Hotel</span><span class="pl">ПЭФ</span><span class="pl">Авангард Mercedes-Benz</span><span class="pl">Спорт Мобиль Porsche</span><span class="pl">W Hotels</span><span class="pl">SO/</span><span class="pl">Лахта Плаза</span><span class="pl">Corinthia</span><span class="pl">Ginza Project</span><span class="pl">Autocollection</span><span class="pl">Охта Парк</span>
+    <span class="pl">Зенит</span><span class="pl">Газпром</span><span class="pl">Роснефть</span><span class="pl">Лукойл</span><span class="pl">Four Seasons</span><span class="pl">Villa du Prince</span><span class="pl">Trezzini</span><span class="pl">Tsar Palace</span><span class="pl">Bentley</span><span class="pl">Maserati</span><span class="pl">Аэротур</span><span class="pl">Grand Hotel Europe</span><span class="pl">Hotel Astoria</span><span class="pl">Angleterre</span><span class="pl">Wawelberg Hotel</span><span class="pl">ПЭФ</span><span class="pl">Авангард Mercedes-Benz</span><span class="pl">Спорт Мобиль Porsche</span><span class="pl">W Hotels</span><span class="pl">SO/</span><span class="pl">Лахта Плаза</span><span class="pl">Corinthia</span><span class="pl">Autocollection</span><span class="pl">Охта Парк</span>
   </div>
 </section>
 
@@ -1044,8 +1043,8 @@ document.querySelectorAll('.atag').forEach(function(tag){
       if(lb && labels[i]) lb.textContent=labels[i].trim();
     });
     var gs=document.getElementById('gslides');
-    if(tag.dataset.name==='Niletto'){ gs.classList.add('show-logo'); }
-    else { gs.classList.remove('show-logo'); }
+    if(tag.dataset.name==='Niletto'){ gs.classList.add('show-logo'); gs.classList.add('single'); }
+    else { gs.classList.remove('show-logo'); gs.classList.remove('single'); }
   });
 });
 
